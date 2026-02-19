@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function LoginPage() {
@@ -126,10 +126,25 @@ export default function LoginPage() {
               borderRadius: 4,
               cursor: loading ? "not-allowed" : "pointer",
               opacity: loading ? 0.6 : 1,
+              marginBottom: 16,
             }}
           >
             {loading ? "Logging in..." : "Login"}
           </button>
+
+          <div style={{ textAlign: "center" }}>
+            <span style={{ marginRight: 8 }}>Don't have an account?</span>
+            <Link
+              to="/register"
+              style={{
+                color: "#007bff",
+                textDecoration: "none",
+                fontWeight: "bold",
+              }}
+            >
+              Register
+            </Link>
+          </div>
         </form>
       </div>
     </div>

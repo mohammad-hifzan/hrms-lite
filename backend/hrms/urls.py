@@ -10,7 +10,7 @@
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import EmployeeViewSet, AttendanceViewSet, current_user
+from .views import EmployeeViewSet, AttendanceViewSet, current_user, register
 
 router = DefaultRouter()
 router.register("employees", EmployeeViewSet, basename="employee")
@@ -19,4 +19,5 @@ router.register("attendance", AttendanceViewSet, basename="attendance")
 urlpatterns = [
     path("", include(router.urls)),
     path("user/", current_user, name="current_user"),
+    path("register/", register, name="register"),
 ]
